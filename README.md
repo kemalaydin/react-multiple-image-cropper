@@ -1,4 +1,4 @@
-## Unibel Cropper Genel Ayarları
+## Cropper Genel Ayarları
 
 > !! Henüz Paket Haline Getirilmemiştir.
 
@@ -40,7 +40,7 @@ Ex.
 
 
 
-## Unibel Cropper Stil Tanımlamaları
+## Cropper Stil Tanımlamaları
 Cropper içerisinde kullanılan inputların ve resimlerin classları mevcuttur. Bu classları bypass ederek kendi sisteminize uygun hala getirebilirsiniz.
 
 ### `.cropper_image_select`
@@ -60,7 +60,7 @@ Yüklenen her resmin sahip olduğu Başlık inputu class'ı. Text tipinde bir in
 
 
 
-## Unibel Cropper Çıktıları
+## Cropper Çıktıları
 Her yüklenen resim için cropper aynı isimde inputlar oluşturur. Bu inputları sunucu tarafınızda array olarak karşılayabilirsiniz.
 
 ### `name="cropper_image[]"`
