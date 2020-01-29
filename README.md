@@ -1,68 +1,71 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Unibel Cropper Genel Ayarları
 
-## Available Scripts
+> !! Henüz Paket Haline Getirilmemiştir.
 
-In the project directory, you can run:
+### `cropper_aspect_x`
+Cropper için aspect değerlerinden x bağımlılığını düzenler. Kullanabilmek için sayfa içerisinde id değeri `cropper_aspect_x` olan bir gizli input kullanabilirsiniz. Vereceğiniz value aspect_x değerini belirleyecektir.
 
-### `yarn start`
+Ex.
+`<input type="hidden" id="cropper_aspect_x" value="100" />`
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### `cropper_aspect_y`
+Cropper için aspect değerlerinden y bağımlılığını düzenler. Kullanabilmek için sayfa içerisinde id değeri `cropper_aspect_y` olan bir gizli input kullanabilirsiniz. Vereceğiniz value aspect_x değerini belirleyecektir.
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+Ex.
+`<input type="hidden" id="cropper_aspect_y" value="100" />`
 
-### `yarn test`
+### `cropper_with`
+Cropper ilk çalıştığındaki otomatik seçili cropper genişliğini belirtir. Boş bırakıldığı taktirde kullanılmaz. Kullanabilmek için sayfa içerisinde id değeri `cropper_with` olan bir gizli input kullanabilirsiniz. Vereceğiniz value aspect_x değerini belirleyecektir.
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Ex.
+`<input type="hidden" id="cropper_with" value="50" />`
 
-### `yarn build`
+### `cropper_height`
+Cropper ilk çalıştığındaki otomatik seçili cropper yüksekliğini belirtir. Boş bırakıldığı taktirde kullanılmaz. Kullanabilmek için sayfa içerisinde id değeri `cropper_height` olan bir gizli input kullanabilirsiniz. Vereceğiniz value aspect_x değerini belirleyecektir.
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Ex.
+`<input type="hidden" id="cropper_height" value="50" />`
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+### `cropper_x`
+Cropper ilk çalıştığındaki otomatik seçili cropper alanının başlayacağı x konumunu belirtir. Boş bırakıldığı taktirde kullanılmaz. Kullanabilmek için sayfa içerisinde id değeri `cropper_x` olan bir gizli input kullanabilirsiniz. Vereceğiniz value aspect_x değerini belirleyecektir.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Ex.
+`<input type="hidden" id="cropper_x" value="0" />`
 
-### `yarn eject`
+### `cropper_y`
+Cropper ilk çalıştığındaki otomatik seçili cropper alanının başlayacağı x konumunu belirtir. Boş bırakıldığı taktirde kullanılmaz. Kullanabilmek için sayfa içerisinde id değeri `cropper_y` olan bir gizli input kullanabilirsiniz. Vereceğiniz value aspect_x değerini belirleyecektir.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+Ex.
+`<input type="hidden" id="cropper_y" value="0" />`
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+## Unibel Cropper Stil Tanımlamaları
+Cropper içerisinde kullanılan inputların ve resimlerin classları mevcuttur. Bu classları bypass ederek kendi sisteminize uygun hala getirebilirsiniz.
 
-## Learn More
+### `.cropper_image_select`
+Resim seçiçi inputun classıdır. File tipinde bir inputtur.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### `.imageSelectedMultiple`
+Yüklenen resimlerin tamamını barındıran container class.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### `.singleImageMultiple`
+Yüklenen her bir resmin container class'ı
 
-### Code Splitting
+### `.__cropper_image`
+Yüklenen her bir resmin class'ı. ( Direkt olarak img tagına ait class )
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+### `.cropper_image_title`
+Yüklenen her resmin sahip olduğu Başlık inputu class'ı. Text tipinde bir inputtur.
 
-### Analyzing the Bundle Size
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
 
-### Making a Progressive Web App
+## Unibel Cropper Çıktıları
+Her yüklenen resim için cropper aynı isimde inputlar oluşturur. Bu inputları sunucu tarafınızda array olarak karşılayabilirsiniz.
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
+### `name="cropper_image[]"`
+Hidden tipinde bir inputtur. Kırpılan resmin base64 kodlarını barındırır. Birden fazla resim olması durumunda array formatında veri döndürür.  -- Hidden nesnedir, sayfada kullanıcıya gösterilmez. --
 
-### Advanced Configuration
+### `name="cropper_image_title[]"`
+Text tipinde bir inputtur. Eklenen resim için başlık bilgisi barındırır. Birden fazla resim olması durumunda array formatında veri döndürür. 
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `yarn build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
