@@ -32,7 +32,7 @@ Yüklenen resimlerin tamamını barındıran container class.
 ### `.singleImageMultiple`
 Yüklenen her bir resmin container class'ı
 
-### `.__cropper_image`
+### `.ReactCrop__image`
 Yüklenen her bir resmin class'ı. ( Direkt olarak img tagına ait class )
 
 ### `.cropper_image_title`
