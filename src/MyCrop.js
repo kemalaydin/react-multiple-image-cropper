@@ -7,14 +7,14 @@ class MyCrop extends Component {
 
     state = {
         crop: {
-            aspect: document.getElementById('cropper_aspect_x').value / document.getElementById('cropper_aspect_y').value,
+            aspect: parseInt(document.getElementById('cropper_aspect_x').value) / parseInt(document.getElementById('cropper_aspect_y').value),
             locked: false,
             keepSelection: false,
-            x: document.getElementById('cropper_x').value,
-            y: document.getElementById('cropper_y').value,
-            width: document.getElementById('cropper_aspect_x').value,
-            height: document.getElementById('cropper_aspect_y').value,
-            unit: document.getElementById('cropper_unit').value,
+            x: 5,
+            y: 5,
+            width: null,
+            height: 90,
+            unit: "%",
         },
         croppedImageUrl: "",
         croppedImg: "",
@@ -55,8 +55,13 @@ class MyCrop extends Component {
     }
 
     onImageLoaded = image => {
-        console.log("onImageLoaded Fonksiyonu Çalıştı");
         this.imageRef = image;
+        this.setState({
+            crop: {
+                ...this.state.crop,
+                width: image.naturalWidth
+            }
+        });
     };
 
     getCroppedImg(image, crop, fileName) {
