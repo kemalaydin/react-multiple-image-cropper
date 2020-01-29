@@ -6,6 +6,13 @@ import MyCrop from "./MyCrop";
 import 'react-image-crop/dist/ReactCrop.css';
 
 class Unicropper extends Component {
+
+    constructor(props) {
+        super(props);
+        this.handler = this.handler.bind(this);
+
+    }
+
     state = {
         images: [
 
@@ -20,6 +27,16 @@ class Unicropper extends Component {
             height: 94
         }
     };
+
+    handler(selectedImage) {
+        const newImages = this.state.images.filter(function (e) {
+            return e.guid != selectedImage;
+        });
+
+        this.setState({
+            images : newImages
+        })
+    }
 
     onSelectFile = (e) => {
         // Kaç Dosya Eklendi : e.target.files.length
@@ -41,7 +58,6 @@ class Unicropper extends Component {
                             }]),
                     }))
                 );
-                //console.log(e.target.files[0]);
                 reader.readAsDataURL(file);
             });
         }
@@ -63,7 +79,7 @@ class Unicropper extends Component {
                     <div className="imageSelectedMultiple">
                         {
                             images.map((image,sort) =>
-                                <MyCrop key={image.guid} {...image} {...cropOptions} sort={sort}/>
+                                <MyCrop key={image.guid} {...image} {...cropOptions} handler = {this.handler}  sort={sort}/>
                             )
                         }
                     </div>

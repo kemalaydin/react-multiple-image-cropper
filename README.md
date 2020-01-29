@@ -14,30 +14,10 @@ Cropper için aspect değerlerinden y bağımlılığını düzenler. Kullanabil
 Ex.
 `<input type="hidden" id="cropper_aspect_y" value="100" />`
 
-### `cropper_with`
-Cropper ilk çalıştığındaki otomatik seçili cropper genişliğini belirtir. Boş bırakıldığı taktirde kullanılmaz. Kullanabilmek için sayfa içerisinde id değeri `cropper_with` olan bir gizli input kullanabilirsiniz. Vereceğiniz value aspect_x değerini belirleyecektir.
-
+### `placeholder_text`
+Crop işlemi yapılan resim için açıklama inputuna ait placeholder yazısı.
 Ex.
-`<input type="hidden" id="cropper_with" value="50" />`
-
-### `cropper_height`
-Cropper ilk çalıştığındaki otomatik seçili cropper yüksekliğini belirtir. Boş bırakıldığı taktirde kullanılmaz. Kullanabilmek için sayfa içerisinde id değeri `cropper_height` olan bir gizli input kullanabilirsiniz. Vereceğiniz value aspect_x değerini belirleyecektir.
-
-Ex.
-`<input type="hidden" id="cropper_height" value="50" />`
-
-### `cropper_x`
-Cropper ilk çalıştığındaki otomatik seçili cropper alanının başlayacağı x konumunu belirtir. Boş bırakıldığı taktirde kullanılmaz. Kullanabilmek için sayfa içerisinde id değeri `cropper_x` olan bir gizli input kullanabilirsiniz. Vereceğiniz value aspect_x değerini belirleyecektir.
-
-Ex.
-`<input type="hidden" id="cropper_x" value="0" />`
-
-### `cropper_y`
-Cropper ilk çalıştığındaki otomatik seçili cropper alanının başlayacağı x konumunu belirtir. Boş bırakıldığı taktirde kullanılmaz. Kullanabilmek için sayfa içerisinde id değeri `cropper_y` olan bir gizli input kullanabilirsiniz. Vereceğiniz value aspect_x değerini belirleyecektir.
-
-Ex.
-`<input type="hidden" id="cropper_y" value="0" />`
-
+`<input type="hidden" id="cropper_aspect_y" value="100" />`
 
 
 ## Cropper Stil Tanımlamaları
@@ -58,6 +38,11 @@ Yüklenen her bir resmin class'ı. ( Direkt olarak img tagına ait class )
 ### `.cropper_image_title`
 Yüklenen her resmin sahip olduğu Başlık inputu class'ı. Text tipinde bir inputtur.
 
+### `.crop_check_button`
+Cropper'a yüklenen resimlerin croplama işlemini tamamlatan span sınıfı.
+
+### `.crop_back_button`
+Cropperlanan resmi tekrar croplanabilir yapan span sınıfı.
 
 
 ## Cropper Çıktıları

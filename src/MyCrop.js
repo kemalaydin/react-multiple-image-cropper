@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
 import ReactCrop from "react-image-crop";
 import image2base64 from 'image-to-base64';
+import { FaCheck, FaTimes,FaTrashAlt } from 'react-icons/fa';
+
 
 
 class MyCrop extends Component {
@@ -16,6 +18,7 @@ class MyCrop extends Component {
             height: 90,
             unit: "%",
         },
+        cropStop : false,
         croppedImageUrl: "",
         croppedImg: "",
     }
@@ -99,23 +102,62 @@ class MyCrop extends Component {
         });
     }
 
+    imageCropped = () => {
+        const croppedData = !this.state.cropStop;
+        this.setState({
+            cropStop: croppedData
+        });
+    }
+
+    deleteImage = () => {
+
+    }
+
     render() {
+        const {cropStop} = this.state;
         return (
             <div className="singleImageMultiple" key={this.props.guid}>
                 <input type="hidden" name="cropper_image[]" id={this.props.guid}></input>
+                {!cropStop && (
+                    <ReactCrop
+                        ref={this.props.guid}
+                        key={this.props.guid}
+                        src={this.props.presigned_photo_url}
+                        crop={this.state.crop}
+                        onChange={this.handleCropChange}
+                        onComplete={this.handleCropCompleted}
+                        class="__cropper_image"
+                        onImageLoaded={this.onImageLoaded.bind(this)}
 
-                <ReactCrop
-                    ref={this.props.guid}
-                    key={this.props.guid}
-                    src={this.props.presigned_photo_url}
-                    crop={this.state.crop}
-                    onChange={this.handleCropChange}
-                    onComplete={this.handleCropCompleted}
-                    class="__cropper_image"
-                    onImageLoaded={this.onImageLoaded.bind(this)}
+                    />
+                )}
 
-                />
-                <input type="text" name="cropper_image_title[]" placeholder="Başlık" class="cropper_image_title"></input>
+                {cropStop && (
+                    <img src={document.getElementById(this.props.guid).value} />
+                )}
+
+                <span onClick={() => this.props.handler(this.props.guid)}
+                      style={{ backgroundColor: '#c9485b', fontSize: "25px", borderRadius: "20px", color: 'white', paddingTop: "6px", paddingBottom: "3px", paddingLeft: "6px", paddingRight: "6px"}}
+                      class="crop_delete_button"
+                >
+                    <FaTrashAlt/>
+                </span>
+
+                    { !cropStop && (
+                    <span onClick={this.imageCropped}
+                          class="crop_check_button"
+                          style={{ backgroundColor: '#75b79e', fontSize: "25px", borderRadius: "20px", color: 'white', paddingTop: "6px", paddingBottom: "3px", paddingLeft: "6px", paddingRight: "6px"}}
+                    ><FaCheck /></span>
+                )}
+
+                { cropStop && (
+                    <span onClick={this.imageCropped}
+                          class="crop_back_button"
+                          style={{ backgroundColor: '#df8543', fontSize: "25px", borderRadius: "20px", color: 'white', paddingTop: "6px", paddingBottom: "3px", paddingLeft: "6px", paddingRight: "6px"}}
+                    ><FaTimes /></span>
+                )}
+
+                <input type="text" name="cropper_image_title[]" placeholder={document.getElementById('placeholder_text').value} class="cropper_image_title"></input>
 
             </div>
         );
