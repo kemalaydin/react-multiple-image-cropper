@@ -157,7 +157,48 @@ class MyCrop extends Component {
                     ><FaTimes /></span>
                 )}
 
-                <input type="text" name="cropper_image_title[]" placeholder={document.getElementById('placeholder_text').value} class="cropper_image_title"></input>
+                {
+                    document.getElementById('cropper_input_1').value && (
+                        <input type="text" name="cropper_input_1[]" class="cropper_input" placeholder={document.getElementById('cropper_input_1_placeholder').value}></input>
+
+                    )
+                }
+
+                {
+                    document.getElementById('cropper_input_2').value && (
+                        <input type="text" name="cropper_input_2[]" class="cropper_input" placeholder={document.getElementById('cropper_input_2_placeholder').value}></input>
+
+                    )
+                }
+
+                {
+                    document.getElementById('cropper_input_3').value && (
+                        <input type="text" name="cropper_input_3[]" class="cropper_input" placeholder={document.getElementById('cropper_input_3_placeholder').value}></input>
+
+                    )
+                }
+
+                {
+                    document.getElementById('cropper_input_4').value && (
+                        <input type="text" name="cropper_input_4[]" class="cropper_input" placeholder={document.getElementById('cropper_input_4_placeholder').value}></input>
+
+                    )
+                }
+
+                {
+                    document.getElementById('cropper_input_5').value && (
+                        <input type="text" name="cropper_input_5[]" class="cropper_input" placeholder={document.getElementById('cropper_input_5_placeholder').value}></input>
+
+                    )
+                }
+
+                {
+                    document.getElementById('cropper_input_6').value && (
+                        <input type="text" name="cropper_input_6[]" class="cropper_input" placeholder={document.getElementById('cropper_input_6_placeholder').value}></input>
+
+                    )
+                }
+
 
             </div>
         );
